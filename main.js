@@ -36,6 +36,5 @@ function endGame() {
 btn.addEventListener('click', start)
 
 function start() {
-    setTimeout(startGame, 1000)
-    console.log('ciao')
+    setTimeout(startGame, Math.floor(Math.random() * (6000 - 1000)) + 1000 )
 }
