@@ -21,9 +21,9 @@ function endReactionTimeCounter() {
     reactionTime = endTime - startTime
 
     if(currentPlayerName == 'Player One') {
-        playerOneTime.innerHTML = reactionTime + "ms"
+        playerOneTime.innerHTML = reactionTime + 'ms'
     } else {
-        playerTwoTime.innerHTML = reactionTime + "ms"
+        playerTwoTime.innerHTML = reactionTime + 'ms'
     }
 
     square.removeEventListener('click', endReactionTimeCounter)
