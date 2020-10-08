@@ -2,8 +2,20 @@
     height: 300px;
     width: 300px;
     border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .bg-red {
     background-color: red;
+}
+
+#tooSoonText {
+    display: none;
+}
+
+#tooSoonText.show {
+    display: inline;
 }
