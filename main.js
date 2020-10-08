@@ -2,39 +2,38 @@ const square = document.getElementById("square")
 const btn = document.getElementById("btn")
 const playerOneTime = document.getElementById("player-one-time")
 const playerTwoTime = document.getElementById("player-two-time")
-const current = document.getElementById('current-player')
+const currentPlayerEl = document.getElementById('current-player')
 
 let startTime
 let endTime
 let reactionTime
-let currentPlayer = 'Player One'
+let currentPlayerName = 'Player One'
 
-
-function startGame() {
+function startReactionTimeCounter() {
     square.classList.add("bg-red")
     startTime = new Date().getTime()
 
-    square.addEventListener('click', endGame)
+    square.addEventListener('click', endReactionTimeCounter)
 }
 
-function endGame() {
+function endReactionTimeCounter() {
     endTime = new Date().getTime()
     reactionTime = endTime - startTime
 
-    if(currentPlayer == 'Player One') {
-        playerOneTime.innerHTML = reactionTime
+    if(currentPlayerName == 'Player One') {
+        playerOneTime.innerHTML = reactionTime + 'ms'
     } else {
-        playerTwoTime.innerHTML = reactionTime
+        playerTwoTime.innerHTML = reactionTime + 'ms'
     }
 
-    square.removeEventListener('click', endGame)
+    square.removeEventListener('click', endReactionTimeCounter)
     square.classList.remove('bg-red')
-    currentPlayer = 'Player Two'
-    current.innerHTML = currentPlayer
+    currentPlayerName = 'Player Two'
+    currentPlayerEl.innerHTML = currentPlayerName
+}
+
+function start() {
+    setTimeout(startReactionTimeCounter, Math.floor(Math.random() * (6000 - 1000)) + 1000)
 }
 
 btn.addEventListener('click', start)
-
-function start() {
-    setTimeout(startGame, Math.floor(Math.random() * (6000 - 1000)) + 1000 )
-}
