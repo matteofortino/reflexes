@@ -12,7 +12,7 @@ let currentPlayerName = 'Player One'
 let timeOutId
 
 function startReactionTimeCounter() {
-    square.classList.add('bg-red')
+    square.classList.add('bg-teal')
     startTime = new Date().getTime()
 
     square.removeEventListener('click', clickedTooSoon)
@@ -30,7 +30,7 @@ function endReactionTimeCounter() {
     }
 
     square.removeEventListener('click', endReactionTimeCounter)
-    square.classList.remove('bg-red')
+    square.classList.remove('bg-teal')
     currentPlayerName = 'Player Two'
     currentPlayerEl.innerHTML = currentPlayerName
 }
