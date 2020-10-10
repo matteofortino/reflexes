@@ -3,18 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#805AD5">
     <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="main.js" defer></script>
     <title>Refelxes</title>
 </head>
 <body>
-    <div id="square">
-        <span id="tooSoonText">Hai cliccato troppo presto. <br /> Premi nuovamente start per riprovare</span>
+    <div class="center-container">
+        <h1>Refelxes</h1>
+        <p>Turno di: <span id="current-player">Player One</span></p>
+        <div class="box-container">
+            <div id="square"> 
+                <span class="inner-box-text" id="waitText">Wait for it...</span>
+                <span class="inner-box-text" id="tooSoonText">Hai cliccato troppo presto. <br /> Premi nuovamente start per riprovare</span>
+            </div>
+            <button type="button" id="btn">START</button>
+        </div>
+    
+        <p>Player One ha impiegato: <span id="player-one-time" class="time"></span></p>
+        <p>Player Two ha impiegato: <span id="player-two-time" class="time"></span></p>
     </div>
-    <p>Sta a <span id="current-player">Player One</span></p>
-    <button type="button" id="btn">START</button>
-
-    <p>Player One ha impiegato: <span id="player-one-time"></span></p>
-    <p>Player Two ha impiegato: <span id="player-two-time"></span></p>
 </body>
 </html>
