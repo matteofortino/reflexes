@@ -73,12 +73,13 @@ button:focus {
     background-color: #4FD1C5 !important;
 }
 
-#tooSoonText {
+#tooSoonText, #waitText {
     display: none;
 }
 
 .inner-box-text {
     color: #1A202C !important;
+    font-size: 1.25rem;
 }
 
 .inner-box-text.show {

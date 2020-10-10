@@ -4,6 +4,7 @@ const playerOneTime = document.getElementById('player-one-time')
 const playerTwoTime = document.getElementById('player-two-time')
 const currentPlayerEl = document.getElementById('current-player')
 const tooSoonText = document.getElementById('tooSoonText')
+const waitText = document.getElementById('waitText')
 
 let startTime
 let endTime
@@ -12,9 +13,10 @@ let currentPlayerName = 'Player One'
 let timeOutId
 
 function startReactionTimeCounter() {
+    waitText.classList.remove('show')
     square.classList.add('bg-teal')
     startTime = new Date().getTime()
-
+    
     square.removeEventListener('click', clickedTooSoon)
     square.addEventListener('click', endReactionTimeCounter)
 }
@@ -37,12 +39,14 @@ function endReactionTimeCounter() {
 
 function clickedTooSoon() {
     clearTimeout(timeOutId)
+    waitText.classList.remove('show')
     tooSoonText.classList.add('show')
 }
 
 function start() {
     square.addEventListener('click',clickedTooSoon)
     tooSoonText.classList.remove('show')
+    waitText.classList.add('show')
     timeOutId = setTimeout(startReactionTimeCounter, Math.floor(Math.random() * (6000 - 1000)) + 1000)
 }
 
