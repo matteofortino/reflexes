@@ -43,7 +43,7 @@ h1 {
   font-weight: 400;
 }
 
-button {
+button.cool-button {
   margin-top: 2rem;
   width: 100%;
   border: none;
@@ -58,15 +58,15 @@ button {
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
 
-button:hover {
+button.cool-button:hover {
   background-color: #2f2357;
 }
 
-button:active {
+button.cool-button:active {
   background-color: #403075;
 }
 
-button:focus {
+button.cool-button:focus {
   outline: none;
 }
 
@@ -98,4 +98,8 @@ button:focus {
 
 p {
   font-size: 1.175rem;
+}
+
+.hidden {
+  display: none;
 }

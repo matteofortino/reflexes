@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,17 +12,33 @@
 <body>
     <div class="center-container">
         <h1>Reflexes</h1>
-        <p>Turno di: <span id="current-player">Player One</span></p>
-        <div class="box-container">
-            <div id="square"> 
-                <span class="inner-box-text" id="waitText">Wait for it...</span>
-                <span class="inner-box-text" id="tooSoonText">Hai cliccato troppo presto. <br /> Premi nuovamente start per riprovare</span>
+        <div class="players-info">
+            <div id="number-wrapper">
+                <p>In quanti volete giocare?</p>
+                <p id="number-error" style="color: red;"></p>
+                <input type="number" min="1" max="10" value="1" id="player-number-input">
+                <button type="button" id="btn-for-number">Invia</button>
             </div>
-            <button type="button" id="btn">START</button>
+            <div id="name-wrapper" class="hidden">
+                <p>Insersci il nome del <span id="current-player-number">1</span>° giocatore</p>
+                <p id="name-error" style="color: red;"></p>
+                <input type="text" id="player-name-input" placeholder="Inserisci il nome">
+                <button type="button" id="btn-for-name">Invia</button>
+            </div>
         </div>
-    
-        <p>Player One ha impiegato: <span id="player-one-time" class="time"></span></p>
-        <p>Player Two ha impiegato: <span id="player-two-time" class="time"></span></p>
+        <div id="game-wrapper" class="hidden">
+            <p>Turno di: <span id="current-player">Player One</span></p>
+            <div class="box-container">
+                <div id="square"> 
+                    <span class="inner-box-text" id="waitText">Wait for it...</span>
+                    <span class="inner-box-text" id="tooSoonText">Hai cliccato troppo presto. <br /> Premi nuovamente start per riprovare</span>
+                </div>
+                <button type="button" id="btn" class="cool-button">START</button>
+            </div>
+        
+            <p>Player One ha impiegato: <span id="player-one-time" class="time"></span></p>
+            <p>Player Two ha impiegato: <span id="player-two-time" class="time"></span></p>
+        </div>
     </div>
 </body>
 </html>
