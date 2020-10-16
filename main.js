@@ -19,7 +19,8 @@ const nameError = document.getElementById('name-error')
 let startTime
 let endTime
 let reactionTime
-let currentPlayerName = 'Player One'
+// let currentPlayerName = 'Player One'
+let currentPlayerId = 0;
 let timeOutId
 let players = []
 let howManyPlayers
@@ -38,16 +39,17 @@ function endReactionTimeCounter() {
     endTime = new Date().getTime()
     reactionTime = endTime - startTime
 
-    if(currentPlayerName == 'Player One') {
-        playerOneTime.innerHTML = reactionTime + 'ms'
-    } else {
-        playerTwoTime.innerHTML = reactionTime + 'ms'
-    }
+    setPlayerScore(currentPlayerId, reactionTime)
+
+   appendPlayerResult(currentPlayerId)
 
     square.removeEventListener('click', endReactionTimeCounter)
     square.classList.remove('bg-teal')
-    currentPlayerName = 'Player Two'
-    currentPlayerEl.innerHTML = currentPlayerName
+
+    currentPlayerId++
+    setPlayerNameOnScren(currentPlayerId)
+    console.log(players)
+    
 }
 
 function clickedTooSoon() {
@@ -92,7 +94,6 @@ function getPlayerName() {
     currentPlayerNumber.innerHTML++
 
     const player = {
-        id: playerAskedTimes,
         name: name,
         score: 0,
     }
@@ -100,6 +101,8 @@ function getPlayerName() {
     players.push(player)
     
     if(playerAskedTimes >= howManyPlayers) {
+        setPlayerNameOnScren(currentPlayerId)
+
         nameWrapper.classList.add('hidden')
         gameWrapper.classList.remove('hidden')
 
@@ -108,5 +111,35 @@ function getPlayerName() {
         return
     }
 }
-
 btnForName.addEventListener('click', getPlayerName)
+
+function setPlayerNameOnScren(playerId) {
+    if(playerId >= players.length || playerId < 0) {
+        return
+    }
+
+    currentPlayerEl.innerText = players[playerId].name
+}
+
+function setPlayerScore(playerId, score) {
+    if(playerId >= players.length || playerId < 0) {
+        return
+    }
+
+    players[playerId].score = score + 'ms'
+}
+
+function appendPlayerResult(playerId) {
+    if(playerId >= players.length || playerId < 0) {
+        return
+    }
+    
+    const name = players[playerId].name
+    const score = players[playerId].score
+
+    const playersResultsList = document.getElementById('players-results')
+    const result = document.createElement('li')
+    result.innerHTML = `${name} ha impiegato: <span class="time">${score}</span>`
+    playersResultsList.appendChild(result)
+
+}
